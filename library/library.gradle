@@ -1,0 +1,23 @@
+group = 'com.theycallmeerick.manyfacedview'
+version = versions.versionName
+
+bintray {
+    user = System.getenv('BINTRAY_USER')
+    key = System.getenv('BINTRAY_KEY')
+
+    pkg {
+        repo = 'manyfacedview'
+        name = 'ManyFacedView'
+        licenses = ['Apache-2.0']
+        publish = true
+
+        vcsUrl = 'https://github.com/elms1990/many-faced-view.git'
+
+        configurations = ['archives']
+
+        version {
+            name = versions.versionName
+            vcsTag = versions.versionName
+        }
+    }
+}

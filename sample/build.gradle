@@ -1,0 +1,45 @@
+apply plugin: 'com.android.application'
+
+android {
+    apply from: '../dependencies.gradle'
+
+    compileSdkVersion versions.compileSdk
+    buildToolsVersion versions.buildTools
+
+    defaultConfig {
+        minSdkVersion versions.minSdk
+        targetSdkVersion versions.targetSdk
+
+        applicationId "com.theycallmeerick.manyfacedview"
+        testInstrumentationRunner "android.support.activity_test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    implementation deps.appCompat
+    implementation deps.recyclerView
+    implementation deps.cardView
+
+    implementation deps.picasso
+
+    implementation deps.butterKnife
+    annotationProcessor deps.butterKnifeCompiler
+
+    implementation deps.rxJava
+    implementation deps.rxAndroid
+
+    implementation deps.manyFacedView
+
+    testImplementation deps.junit
+    androidTestImplementation(deps.espresso, {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+}

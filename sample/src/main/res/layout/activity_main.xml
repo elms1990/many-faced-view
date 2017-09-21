@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    tools:context=".MainActivity">
+
+    <Button
+        android:id="@+id/state_test_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="No Animation State Switch Test"/>
+
+    <Button
+        android:id="@+id/butterknife_test_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Butterknife Test"/>
+
+    <Button
+        android:id="@+id/recyclerview_test_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Recyclerview Test"/>
+
+    <Button
+        android:id="@+id/transition_test_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Automatic State Transition"/>
+
+    <Button
+        android:id="@+id/custom_animation_test_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Custom Animation"/>
+
+</LinearLayout>
