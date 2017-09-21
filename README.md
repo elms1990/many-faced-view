@@ -1,8 +1,7 @@
 # Many Faced View
----
+
 #### __"That man's life was not yours to take. A girl stole from the Many-Faced God. Now a debt is owed" - Jaqen H'ghar to Arya Stark__
 
----
 Simple library for handling view state switching, with minor transition customization.
 Inspired by [MultiStateView](https://github.com/Kennyc1012/MultiStateView)
 
@@ -11,7 +10,7 @@ Features:
 - in and out transition customization
 
 # XML Declaration
----
+
 ```xml
     <com.theycallmeerick.manyfacedview.view.ManyFacedView
         android:id="@+id/state_view"
@@ -25,7 +24,7 @@ Features:
 ```
 
 # XML Attributes
----
+
 ```xml
     <!-- View states -->
     <attr name="mfv_content" format="reference" />
@@ -47,7 +46,7 @@ Features:
 ```
 
 # Java Usage
----
+
 All XML attributes can be set using the Java API.
 ```java
     // Add state view
@@ -69,7 +68,6 @@ All XML attributes can be set using the Java API.
 ```
 
 # Using the Library
----
 
 ```groovy
 repositories {
@@ -84,17 +82,14 @@ dependencies {
 ```
 
 # Samples
----
 
 You can find a few examples inside the [samples](https://github.com/elms1990/many-faced-view/samples) project.
 
 # Known Issues
----
 
 Currently we have no known issues.
 
 # License
----
 
     Copyright 2017 Erick Luis
 
