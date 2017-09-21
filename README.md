@@ -83,7 +83,7 @@ dependencies {
 
 # Samples
 
-You can find a few examples inside the [samples](https://github.com/elms1990/many-faced-view/samples) project.
+You can find a few examples inside the [samples](https://github.com/elms1990/many-faced-view/tree/master/sample) project.
 
 # Known Issues
 
