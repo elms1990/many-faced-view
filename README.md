@@ -12,7 +12,6 @@ Inspired by [MultiStateView](https://github.com/Kennyc1012/MultiStateView)
 Features:
 - 8 different states: content, loading, empty, error, extra1, extra2, extra3, extra4
 - in and out transition customization
-- View swap method: adding and removing then from hierarchy (default) or keeping all state views inside the layout.
 
 # XML Declaration
 
