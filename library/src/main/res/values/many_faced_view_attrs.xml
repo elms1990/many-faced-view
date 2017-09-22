@@ -24,5 +24,7 @@
         <attr name="mfv_animateChanges" format="boolean" />
         <attr name="mfv_outAnimation" format="reference" />
         <attr name="mfv_inAnimation" format="reference" />
+
+        <attr name="mfv_keepViewsInHierarchy" format="boolean" />
     </declare-styleable>
 </resources>

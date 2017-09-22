@@ -27,8 +27,8 @@ public class ManyFacedView extends FrameLayout {
     private @ViewState int previousState = ViewState.UNKNOWN;
     private @ViewState int initialState = ViewState.UNKNOWN;
     private @ViewState int currentState = ViewState.UNKNOWN;
-    private boolean animateTransition = false;
 
+    private boolean animateTransition = false;
     private Animator inAnimator;
     private Animator outAnimator;
 
@@ -106,6 +106,10 @@ public class ManyFacedView extends FrameLayout {
 
     public void addStateView(@ViewState int state, View view) {
         stateViews.put(state, view);
+        if (currentState != state) {
+            view.setVisibility(View.GONE);
+        }
+        addView(view);
     }
 
     public void addStateView(@ViewState int state, @LayoutRes int layoutId) {
@@ -143,20 +147,19 @@ public class ManyFacedView extends FrameLayout {
         if (animateTransition) {
             animateViewSwap(outView, inView);
         } else {
-            immediatelySwap(inView);
+            immediateSwap(outView, inView);
         }
     }
 
     private void animateViewSwap(final View outView, final View inView) {
         inView.setVisibility(View.GONE);
-        addView(inView);
 
         AnimatorComposer
                 .from(outAnimator, outView)
                 .nextAction(new ActionCallback() {
                     @Override
                     public void execute() {
-                        removeView(outView);
+                        hideOutView(outView);
                         inView.setVisibility(View.VISIBLE);
                     }
                 })
@@ -170,21 +173,21 @@ public class ManyFacedView extends FrameLayout {
                 .start();
     }
 
-    private void immediatelySwap(View inView) {
-        removePreviousStateIfAttached();
-        addView(inView);
+    private void immediateSwap(View outView, View inView) {
+        hideOutView(outView);
+        inView.setVisibility(View.VISIBLE);
         notifyStateChanged();
-    }
-
-    private void removePreviousStateIfAttached() {
-        if (getChildCount() > 0) {
-            removeViewAt(0);
-        }
     }
 
     private void notifyStateChanged() {
         if (listener != null && previousState != ViewState.UNKNOWN) {
             listener.onChanged(currentState);
+        }
+    }
+
+    private void hideOutView(View outView) {
+        if (outView != null) {
+            outView.setVisibility(View.GONE);
         }
     }
 

@@ -2,12 +2,17 @@
 
 #### __"That man's life was not yours to take. A girl stole from the Many-Faced God. Now a debt is owed" - Jaqen H'ghar to Arya Stark__
 
+# Description
+[![](https://jitpack.io/v/elms1990/many-faced-view.svg)](https://jitpack.io/#elms1990/many-faced-view)
+
 Simple library for handling view state switching, with minor transition customization.
+
 Inspired by [MultiStateView](https://github.com/Kennyc1012/MultiStateView)
 
 Features:
 - 8 different states: content, loading, empty, error, extra1, extra2, extra3, extra4
 - in and out transition customization
+- View swap method: adding and removing then from hierarchy (default) or keeping all state views inside the layout.
 
 # XML Declaration
 
@@ -49,22 +54,22 @@ Features:
 
 All XML attributes can be set using the Java API.
 ```java
-    // Add state view
-    manyFacedView.addStateView(@ViewState int state, View view);
-    manyFacedView.addStateView(@ViewState int state, @LayoutRes int layoutId);
+     // Add state view
+     manyFacedView.addStateView(@ViewState int state, View view);
+     manyFacedView.addStateView(@ViewState int state, @LayoutRes int layoutId);
     
-    // Get view for state
-    manyFacedView.getView(@ViewState int state);
+     // Get view for state
+     manyFacedView.getView(@ViewState int state);
     
-    // Get/Set current state
-    manyFacedView.setState(@ViewState int state);
-    manyFacedView.getState();
+     // Get/Set current state
+     manyFacedView.setState(@ViewState int state);
+     manyFacedView.getState();
     
-    // Animation related methods
-    manyFacedView.enableTransitionAnimation(boolean enable);
-    manyFacedView.setInAnimator(@NonNull Animator inAnimator);
-    manyFacedView.setOutAnimator(@NonNull Animator outAnimator);
-    manyFacedView.setOnStateChangedListener(@Nullable OnStateChangedListener listener);
+     // Animation related methods
+     manyFacedView.enableTransitionAnimation(boolean enable);
+     manyFacedView.setInAnimator(@NonNull Animator inAnimator);
+     manyFacedView.setOutAnimator(@NonNull Animator outAnimator);
+     manyFacedView.setOnStateChangedListener(@Nullable OnStateChangedListener listener);
 ```
 
 # Using the Library
@@ -77,7 +82,7 @@ repositories {
 
 ```groovy
 dependencies {
-    compile 'com.github.elms1990:many-faced-view:1.0.0'
+    compile 'com.github.elms1990:many-faced-view:1.0.1'
 }
 ```
 

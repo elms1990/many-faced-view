@@ -22,6 +22,8 @@ android {
 }
 
 dependencies {
+    implementation project(':library')
+
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
     implementation deps.appCompat
@@ -35,8 +37,6 @@ dependencies {
 
     implementation deps.rxJava
     implementation deps.rxAndroid
-
-    implementation deps.manyFacedView
 
     testImplementation deps.junit
     androidTestImplementation(deps.espresso, {

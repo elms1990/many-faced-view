@@ -15,6 +15,6 @@
         app:mfv_inAnimation="@anim/custom_fade_in"
         app:mfv_loading="@layout/test_item_state_loading_view"
         app:mfv_outAnimation="@anim/custom_fade_out"
-        app:mfv_state="loading" />
+        app:mfv_state="loading"/>
 
 </LinearLayout>

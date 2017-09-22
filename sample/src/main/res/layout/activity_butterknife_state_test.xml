@@ -9,6 +9,8 @@
         android:id="@+id/state_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        app:mfv_state="loading"
+        app:mfv_loading="@layout/butterknife_test_loading"
         app:mfv_content="@layout/butterknife_test_content"/>
 
 </LinearLayout>

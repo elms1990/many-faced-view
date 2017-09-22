@@ -25,7 +25,11 @@ public class CustomAnimationTestActivity extends AppCompatActivity {
     @BindView(R.id.state_view)
     ManyFacedView stateView;
 
-    ContentView contentView = new ContentView();
+    @BindView(R.id.image)
+    ImageView image;
+
+    @BindView(R.id.text)
+    TextView text;
 
     Disposable disposable;
 
@@ -63,20 +67,11 @@ public class CustomAnimationTestActivity extends AppCompatActivity {
     }
 
     private void displayContents() {
-        ButterKnife.bind(contentView, this);
-        contentView.text.setText("Finished Loading Amy image :D");
+        text.setText("Finished Loading Amy image :D");
         Picasso.with(this)
                 .load(IMAGE_URL)
                 .centerInside()
                 .fit()
-                .into(contentView.image);
-    }
-
-    static class ContentView {
-        @BindView(R.id.image)
-        ImageView image;
-
-        @BindView(R.id.text)
-        TextView text;
+                .into(image);
     }
 }

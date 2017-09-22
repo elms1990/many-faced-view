@@ -24,9 +24,10 @@
         <activity
             android:name=".butterknife.ButterKnifeStateTestActivity"
             android:label="ButterKnife Test" />
-        <activity android:name=".recyclerview.RecyclerViewTestActivity" />
-        <activity android:name=".transition.StateTransitionActivity" />
-        <activity android:name=".customanimation.CustomAnimationTestActivity"></activity>
+        <activity android:name=".recyclerview.RecyclerViewTestActivity"
+            android:label="RecyclerView Test"/>
+        <activity android:name=".customanimation.CustomAnimationTestActivity"
+            android:label="Custom Animation"/>
     </application>
 
 </manifest>
