@@ -31,6 +31,7 @@ public class ManyFacedView extends FrameLayout {
     private boolean animateTransition = false;
     private Animator inAnimator;
     private Animator outAnimator;
+    private AnimatorComposer animatorComposer;
 
     private OnStateChangedListener listener;
 
@@ -154,7 +155,8 @@ public class ManyFacedView extends FrameLayout {
     private void animateViewSwap(final View outView, final View inView) {
         inView.setVisibility(View.GONE);
 
-        AnimatorComposer
+        cancelPreviousAnimation();
+        animatorComposer = AnimatorComposer
                 .from(outAnimator, outView)
                 .nextAction(new ActionCallback() {
                     @Override
@@ -171,6 +173,12 @@ public class ManyFacedView extends FrameLayout {
                     }
                 })
                 .start();
+    }
+
+    private void cancelPreviousAnimation() {
+        if (animatorComposer != null) {
+            animatorComposer.stop();
+        }
     }
 
     private void immediateSwap(View outView, View inView) {
