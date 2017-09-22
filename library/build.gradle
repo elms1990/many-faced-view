@@ -1,5 +1,5 @@
 apply plugin: 'com.android.library'
-apply plugin: 'com.jfrog.bintray'
+apply plugin: 'maven'
 
 android {
     apply from: '../dependencies.gradle'
@@ -55,5 +55,3 @@ artifacts {
     archives javadocJar
     archives sourcesJar
 }
-
-apply from: 'library.gradle'
