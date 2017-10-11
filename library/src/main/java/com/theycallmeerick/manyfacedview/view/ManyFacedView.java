@@ -4,6 +4,7 @@ import android.animation.Animator;
 import android.animation.AnimatorInflater;
 import android.content.Context;
 import android.content.res.TypedArray;
+import android.os.Build;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.support.annotation.LayoutRes;
@@ -153,9 +154,30 @@ public class ManyFacedView extends FrameLayout {
     }
 
     private void animateViewSwap(final View outView, final View inView) {
+        cancelPreviousAnimation();
+
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
+            animatePreLollipop(outView, inView);
+        } else {
+            animateLollipopAndNewer(outView, inView);
+        }
+    }
+
+    private void animatePreLollipop(final View outView, final View inView) {
+        if (outView != null) {
+            animateInAndOutView(outView, inView);
+        } else {
+            animateInView(inView);
+        }
+    }
+
+    private void animateLollipopAndNewer(final View outView, final View inView) {
+        animateInAndOutView(outView, inView);
+    }
+
+    private void animateInAndOutView(final View outView, final View inView) {
         inView.setVisibility(View.GONE);
 
-        cancelPreviousAnimation();
         animatorComposer = AnimatorComposer
                 .from(outAnimator, outView)
                 .nextAction(new ActionCallback() {
@@ -166,6 +188,20 @@ public class ManyFacedView extends FrameLayout {
                     }
                 })
                 .next(inAnimator, inView)
+                .nextAction(new ActionCallback() {
+                    @Override
+                    public void execute() {
+                        notifyStateChanged();
+                    }
+                })
+                .start();
+    }
+
+    private void animateInView(final View inView) {
+        inView.setVisibility(View.VISIBLE);
+
+        animatorComposer = AnimatorComposer
+                .from(inAnimator, inView)
                 .nextAction(new ActionCallback() {
                     @Override
                     public void execute() {

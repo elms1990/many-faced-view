@@ -81,7 +81,7 @@ repositories {
 
 ```groovy
 dependencies {
-    compile 'com.github.elms1990:many-faced-view:1.0.1'
+    compile 'com.github.elms1990:many-faced-view:1.0.2'
 }
 ```
 

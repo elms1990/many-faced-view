@@ -1,7 +1,6 @@
 package com.theycallmeerick.manyfacedview.animator;
 
 import android.animation.Animator;
-import android.animation.AnimatorSet;
 import android.support.annotation.NonNull;
 import android.view.View;
 
