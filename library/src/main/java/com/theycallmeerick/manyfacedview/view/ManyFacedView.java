@@ -109,7 +109,7 @@ public class ManyFacedView extends FrameLayout {
     public void addStateView(@ViewState int state, View view) {
         stateViews.put(state, view);
         if (currentState != state) {
-            view.setVisibility(View.GONE);
+            view.setVisibility(View.INVISIBLE);
         }
         addView(view);
     }
@@ -176,7 +176,7 @@ public class ManyFacedView extends FrameLayout {
     }
 
     private void animateInAndOutView(final View outView, final View inView) {
-        inView.setVisibility(View.GONE);
+        inView.setVisibility(View.INVISIBLE);
 
         animatorComposer = AnimatorComposer
                 .from(outAnimator, outView)
@@ -231,7 +231,7 @@ public class ManyFacedView extends FrameLayout {
 
     private void hideOutView(View outView) {
         if (outView != null) {
-            outView.setVisibility(View.GONE);
+            outView.setVisibility(View.INVISIBLE);
         }
     }
 
